@@ -5,19 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login"
+    android:background="@drawable/security"
     android:orientation="vertical"
     android:padding="25dp">
+
 <androidx.appcompat.widget.LinearLayoutCompat
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:textStyle="bold"
+    android:backgroundTint="@color/black">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginTop="4dp"
         android:text="Log In"
         android:textColor="@color/black"
-        android:textSize="18dp"
+        android:textSize="50dp"
+        android:textAlignment="center"
         android:textStyle="bold"
         android:layout_marginStart="100dp"
 
@@ -28,6 +34,7 @@
         android:id="@+id/imageView"
         android:layout_width="250dp"
         android:layout_height="250dp"
+        android:layout_marginTop="25dp"
         android:layout_gravity="center"
         app:srcCompat="@drawable/alarm"
         android:layout_marginBottom="25dp"/>
@@ -36,12 +43,19 @@
     <EditText
         android:id="@+id/loginUsername"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Username" />
+        android:layout_height="45dp"
+        android:hint="Username"
+        android:background="@drawable/input_box"
+        android:textColor="@color/white"
+        android:textAlignment="center"/>
+
     <EditText
         android:id="@+id/loginPassword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:background="@drawable/input_box"
+        android:layout_marginTop="20dp"
+        android:layout_height="45dp"
+        android:textAlignment="center"
         android:hint="Password" />
 
     <LinearLayout
@@ -49,7 +63,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="20dp"
-        android:layout_gravity="center">
+        android:gravity="center">
 
         <Button
             android:id="@+id/loginBtn"
@@ -57,7 +71,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Login"
-            android:layout_marginRight="25dp"/>
+            android:layout_marginRight="25dp"
+            />
         <Button
             android:id="@+id/loginRegisterBtn"
             android:layout_width="wrap_content"
