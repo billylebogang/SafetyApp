@@ -51,7 +51,7 @@ public class MyServices extends Service {
                     Log.e( "Service","run: I AM A SERVICE AND I AM RUNNING AT: "+ coodinate.getCountry());
                     try {
 
-                        Thread.sleep(5000);
+                        Thread.sleep(60000);
 
                         sendSms(coodinate);
 
