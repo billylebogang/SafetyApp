@@ -19,125 +19,194 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/registerName"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textAlignment="center"
+                android:ems="10"
+                android:text="CREATE ACCOUNT"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="@color/blue"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/registerName"
+                android:layout_width="250dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/input_box"
                 android:ems="10"
                 android:hint="Firstname"
+                android:textAlignment="center"
+                android:textColor="@color/purple_200"
                 android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/registerSurname"
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/input_box"
                 android:ems="10"
                 android:hint="Surname"
+                android:textAlignment="center"
                 android:textColor="@color/purple_200"
                 android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/registerNumber"
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/input_box"
                 android:ems="10"
                 android:hint="Cell number"
+                android:textAlignment="center"
+                android:textColor="@color/purple_200"
                 android:inputType="number" />
 
             <EditText
                 android:id="@+id/registerId"
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/input_box"
                 android:ems="10"
-                android:hint="omang/passport"
+                android:hint="Omang/Passport Number"
+                android:textAlignment="center"
+                android:textColor="@color/purple_200"
                 android:inputType="number" />
 
             <EditText
                 android:id="@+id/registerNextKin"
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/input_box"
                 android:ems="10"
                 android:hint="Next of kin name"
+                android:textAlignment="center"
+                android:textColor="@color/purple_200"
                 android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/kinNumber"
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/input_box"
                 android:ems="10"
-                android:hint="next kin number"
+                android:hint="Next kin number"
+                android:textAlignment="center"
+                android:textColor="@color/purple_200"
                 android:inputType="number" />
 
             <EditText
                 android:id="@+id/registerAddress"
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/input_box"
                 android:ems="10"
                 android:hint="Physical address"
+                android:textAlignment="center"
+                android:textColor="@color/purple_200"
                 android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="Setting up account"
+                android:textColor="@color/blue"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <EditText
                 android:id="@+id/registerEmail"
-                android:layout_width="match_parent"
+                android:layout_width="337dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/input_box"
                 android:ems="10"
                 android:hint="Enter email"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:textColor="@color/purple_200"
+                android:textAlignment="center" />
 
             <EditText
                 android:id="@+id/registerPassword"
-                android:layout_width="match_parent"
+                android:layout_width="338dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/input_box"
                 android:ems="10"
-                android:hint="set password"
-                android:inputType="textPassword" />
+                android:hint="Enter password"
+                android:inputType="textPassword"
+                android:textColor="@color/purple_200"
+                android:textAlignment="center" />
 
             <ImageButton
                 android:id="@+id/registerAddDp"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/pro_icon"
+                android:layout_marginTop="10dp"
+                 />
+
+            <TextView
+                android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/ic_menu_add" />
+                android:text="Gender"
+                android:textColor="@color/blue"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <RadioGroup
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-
-                <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Gender"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
 
                 <RadioButton
                     android:id="@+id/male"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Male" />
+                    android:text="Male"
+                    android:textStyle="bold"
+                    android:textColor="@color/dark_cyan"/>
 
                 <RadioButton
                     android:id="@+id/female"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Female" />
+                    android:text="Female"
+                    android:textColor="@color/dark_cyan"/>
             </RadioGroup>
 
             <Button
                 android:id="@+id/registerBtn"
-                android:layout_width="match_parent"
+                android:layout_width="145dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
                 android:text="Register" />
 
             <Button
                 android:id="@+id/registerLoginBtn"
-                android:layout_width="match_parent"
+                android:layout_width="145dp"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:text="Login" />
 

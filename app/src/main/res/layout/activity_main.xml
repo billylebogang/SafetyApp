@@ -9,89 +9,127 @@
     android:orientation="vertical"
     android:padding="20dp">
 
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/container">
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="250dp"
-            android:layout_height="150dp"
-            app:srcCompat="@drawable/profile"
-            android:layout_weight="1"
-            android:padding="5dp"
-            />
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:paddingLeft="5dp"
-            android:paddingTop="15dp">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/back">
 
-            <TextView
-                android:id="@+id/profilename"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Name Last name"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="250dp"
+                android:layout_height="150dp"
+                app:srcCompat="@drawable/profile"
+                android:layout_weight="1"
+                android:padding="5dp"
+                />
 
-            <TextView
-                android:id="@+id/profilenumber"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="7345678"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:paddingLeft="5dp"
+                android:paddingTop="15dp">
 
-            <TextView
-                android:id="@+id/profilelocation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Location"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="121dp"
+
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/profilename"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Name Last name"
+                        android:textStyle="bold"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                    <TextView
+                        android:id="@+id/profilenumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="7345678"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    <TextView
+                        android:id="@+id/profilelocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Location"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                </LinearLayout>
+
+
+            </LinearLayout>
 
 
         </LinearLayout>
 
 
+        <TextView
+            android:id="@+id/instruction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="Shake phone or press button"
+            android:textStyle="bold"
+            android:textColor="@color/blue"
+            android:textSize="15dp"
+            />
+
+
+        <TextView
+            android:id="@+id/results"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:textStyle="bold"
+            android:text="Never give safety a dayoff"
+            android:textColor="@color/blue"
+            android:textSize="15dp"
+            />
+
+        <Button
+            android:id="@+id/activateBtn"
+            android:layout_width="308dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/darkblue"
+            android:text="Activate"
+            android:layout_gravity="center"/>
+
+
+        <Button
+            android:id="@+id/signoutBtn"
+            android:layout_width="308dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Sign out"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/darkblue"/>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="250dp"
+            android:layout_height="195dp"
+            android:layout_gravity="center"
+            android:padding="2dp"
+            android:layout_marginTop="50dp"
+            app:srcCompat="@drawable/alert" />
+
+
+
     </LinearLayout>
-
-
-    <TextView
-        android:id="@+id/instruction"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:text="Shake phone or press button"
-        android:textStyle="bold"
-        android:textColor="@color/gold"
-         />
-
-
-    <TextView
-        android:id="@+id/results"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:text="Never give safety a dayoff"
-         />
-
-    <Button
-        android:id="@+id/activateBtn"
-        android:text="Activate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
-    <Button
-        android:id="@+id/signoutBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sign out"/>
-
-
-
 </LinearLayout>
