@@ -50,4 +50,9 @@ public class Coodinate implements Serializable {
     public void setTown(String town) {
         this.town = town;
     }
+
+    @Override
+    public String toString() {
+        return " longitudes'" + longitudes + ", latitudes='" + latitudes + ", country='" + country + ", town='" + town;
+    }
 }

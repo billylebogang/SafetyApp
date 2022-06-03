@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.hardware.SensorListener;
+import android.hardware.SensorManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -34,7 +37,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity implements SensorListener {
 
     //for testing if the thing works
     TextView results,profilename,profilelocation,profilenumber;
@@ -58,6 +61,15 @@ public class MainActivity extends AppCompatActivity {
     boolean ACTIVATOR = false;
     FusedLocationProviderClient fusedLocationProviderClient;
 
+
+    //sensor
+
+    private SensorManager sensorMgr;
+    private long lastUpdate = -1;
+    private float x, y, z;
+    private float last_x, last_y, last_z;
+    private static final int SHAKE_THRESHOLD = 800;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +85,10 @@ public class MainActivity extends AppCompatActivity {
 
         coodinate = new Coodinate();
 
+        User user = new User();
+
+        user.toString();
+
 
         //database stuff
         database = FirebaseDatabase.getInstance();
@@ -80,8 +96,22 @@ public class MainActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         USER = auth.getCurrentUser();
 
+        //shaking sensor
 
-        //getting user details to desplay
+        // start motion detection
+        sensorMgr = (SensorManager) getSystemService(SENSOR_SERVICE);
+        boolean accelSupported = sensorMgr.registerListener(this,
+                SensorManager.SENSOR_ACCELEROMETER,
+                SensorManager.SENSOR_DELAY_GAME);
+
+        if (!accelSupported) {
+            // on accelerometer on this device
+            sensorMgr.unregisterListener(this,
+                    SensorManager.SENSOR_ACCELEROMETER);
+        }
+
+
+        //getting user details to display
         getData();
 
 
@@ -210,8 +240,6 @@ public class MainActivity extends AppCompatActivity {
             }
             else if(keycode == KeyEvent.KEYCODE_VOLUME_UP){
                 //VOLUME UP KEY
-
-
                 a1++; //keeping track of long int takes to keep down
 
                 results.setText("Volume up pressed down");
@@ -328,5 +356,71 @@ public class MainActivity extends AppCompatActivity {
            }
        });
 
+    }
+
+    @Override
+    public void onAccuracyChanged(int i, int i1) {
+
+    }
+
+
+    protected void onPause() {
+        if (sensorMgr != null) {
+            sensorMgr.unregisterListener(this,
+                    SensorManager.SENSOR_ACCELEROMETER);
+            sensorMgr = null;
+        }
+        super.onPause();
+    }
+
+
+
+    public void onSensorChanged(int sensor, float[] values) {
+        if (sensor == SensorManager.SENSOR_ACCELEROMETER) {
+            long curTime = System.currentTimeMillis();
+
+            // only allow one update every 1000ms.
+            if ((curTime - lastUpdate) > 700) {
+                long diffTime = (curTime - lastUpdate);
+                lastUpdate = curTime;
+
+                x = values[SensorManager.DATA_X];
+                y = values[SensorManager.DATA_Y];
+                z = values[SensorManager.DATA_Z];
+
+                if(Round(x,4)>10.0000){
+                    Log.d("sensor", "X Right axis: " + x);
+                    Toast.makeText(this, "Right shake detected", Toast.LENGTH_SHORT).show();
+
+                    Intent serviceIntent = new Intent(MainActivity.this, MyServices.class);
+
+                    serviceIntent.putExtra("coodinate", coodinate);
+
+                    startService(serviceIntent);
+                }
+                else if(Round(x,4)<-10.0000){
+                    Log.d("sensor", "X Left axis: " + x);
+                    Toast.makeText(this, "Left shake detected", Toast.LENGTH_SHORT).show();
+                }
+
+                float speed = Math.abs(x+y+z - last_x - last_y - last_z) / diffTime * 10000;
+
+                // Log.d("sensor", "diff: " + diffTime + " - speed: " + speed);
+                if (speed > SHAKE_THRESHOLD) {
+                    //Log.d("sensor", "shake detected w/ speed: " + speed);
+                    //Toast.makeText(this, "shake detected w/ speed: " + speed, Toast.LENGTH_SHORT).show();
+                }
+                last_x = x;
+                last_y = y;
+                last_z = z;
+            }
+        }
+    }
+
+    public static float Round(float Rval, int Rpl) {
+        float p = (float)Math.pow(10,Rpl);
+        Rval = Rval * p;
+        float tmp = Math.round(Rval);
+        return (float)tmp/p;
     }
 }

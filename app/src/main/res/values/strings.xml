@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SafetyApp</string>
+    <string name="permission_not_granted">permissio not granted</string>
 </resources>
